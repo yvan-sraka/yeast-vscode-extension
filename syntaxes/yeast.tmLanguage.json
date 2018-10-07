@@ -2,31 +2,125 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "YeAST",
 	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
+		{ "include": "#yeast" }
 	],
 	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.yeast",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.yeast",
-			"begin": "\"",
-			"end": "\"",
+		"yeast": {
 			"patterns": [
+				{ "include": "#c" },
+				{ "include": "#js" },
+				{ "include": "#makefile" },
+				{ "include": "#python" },
+				{ "include": "#rust" },
+				{ "include": "#unknow" }
+			]
+		},
+		"sh": {
+			"begin": "#!",
+			"end": "!#",
+			"contentName": "meta.embedded.block.shellscript",
+			"patterns": [
+				{ "include": "source.shell" },
 				{
-					"name": "constant.character.escape.yeast",
-					"match": "\\\\."
+					"name": "keyword.control.yeast",
+					"match": "@[a-z]*"
 				}
+			]
+		},
+		"c": {
+			"begin": "#!.*(gcc)|(clang).*\n",
+			"end": "!#",
+			"contentName": "meta.embedded.block.c",
+			"beginCaptures": {
+				"0": {
+					"patterns": [
+						{ "include": "#sh" }
+					]
+				}
+			},
+			"patterns": [
+				{ "include": "#yeast" },
+				{ "include": "source.c" }
+			]
+		},
+		"js": {
+			"begin": "#!.*node.*\n",
+			"end": "!#",
+			"contentName": "meta.embedded.block.javascript",
+			"beginCaptures": {
+				"0": {
+					"patterns": [
+						{ "include": "#sh" }
+					]
+				}
+			},
+			"patterns": [
+				{ "include": "#yeast" },
+				{ "include": "source.js" }
+			]
+		},
+		"makefile": {
+			"begin": "#!.*make.*\n",
+			"end": "!#",
+			"contentName": "meta.embedded.block.makefile",
+			"beginCaptures": {
+				"0": {
+					"patterns": [
+						{ "include": "#sh" }
+					]
+				}
+			},
+			"patterns": [
+				{ "include": "#yeast" },
+				{ "include": "source.makefile" }
+			]
+		},
+		"python": {
+			"begin": "#!.*python.*\n",
+			"end": "!#",
+			"contentName": "meta.embedded.block.python",
+			"beginCaptures": {
+				"0": {
+					"patterns": [
+						{ "include": "#sh" }
+					]
+				}
+			},
+			"patterns": [
+				{ "include": "#yeast" },
+				{ "include": "source.python" }
+			]
+		},
+		"rust": {
+			"begin": "#!.*rustc.*\n",
+			"end": "!#",
+			"contentName": "meta.embedded.block.rust",
+			"beginCaptures": {
+				"0": {
+					"patterns": [
+						{ "include": "#sh" }
+					]
+				}
+			},
+			"patterns": [
+				{ "include": "#yeast" },
+				{ "include": "source.rust" }
+			]
+		},
+		"unknow": {
+			"begin": "#!.*\n",
+			"end": "!#",
+			"beginCaptures": {
+				"0": {
+					"patterns": [
+						{ "include": "#sh" }
+					]
+				}
+			},
+			"patterns": [
+				{ "include": "#yeast" }
 			]
 		}
 	},
-	"scopeName": ""
+	"scopeName": "source.yeast"
 }
