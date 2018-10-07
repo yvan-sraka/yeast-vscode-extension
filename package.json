@@ -2,7 +2,7 @@
     "name": "yeast",
     "displayName": "YeAST",
     "description": "YeAST language support",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "publisher": "yvan-sraka",
     "engines": {
         "vscode": "^1.27.0"
@@ -11,23 +11,32 @@
         "Programming Languages"
     ],
     "contributes": {
-        "languages": [{
-            "id": "yeast",
-            "aliases": ["YeAST", "yeast"],
-            "extensions": [".yst"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "yeast",
-            "scopeName": "source.yeast",
-            "path": "./syntaxes/yeast.tmLanguage.json",
-            "embeddedLanguages": {
-                "meta.embedded.block.makefile": "makefile",
-                "meta.embedded.block.c": "c",
-                "meta.embedded.block.javascript": "javascript",
-                "meta.embedded.block.python": "python",
-                "meta.embedded.block.rust": "rust"
+        "languages": [
+            {
+                "id": "yeast",
+                "aliases": [
+                    "YeAST",
+                    "yeast"
+                ],
+                "extensions": [
+                    ".yst"
+                ],
+                "configuration": "./language-configuration.json"
             }
-		}]
+        ],
+        "grammars": [
+            {
+                "language": "yeast",
+                "scopeName": "source.yeast",
+                "path": "./syntaxes/yeast.tmLanguage.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.makefile": "makefile",
+                    "meta.embedded.block.c": "c",
+                    "meta.embedded.block.javascript": "javascript",
+                    "meta.embedded.block.python": "python",
+                    "meta.embedded.block.rust": "rust"
+                }
+            }
+        ]
     }
 }
