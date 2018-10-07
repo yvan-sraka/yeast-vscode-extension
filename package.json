@@ -2,7 +2,7 @@
     "name": "yeast",
     "displayName": "YeAST",
     "description": "YeAST language support",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "publisher": "yvan-sraka",
     "repository": "https://github.com/yvan-sraka/yeast-vscode-extension.git",
     "engines": {
