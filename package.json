@@ -1,0 +1,26 @@
+{
+    "name": "yeast",
+    "displayName": "YeAST",
+    "description": "YeAST language support",
+    "version": "0.0.1",
+    "publisher": "yvan-sraka",
+    "engines": {
+        "vscode": "^1.27.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "yeast",
+            "aliases": ["YeAST", "yeast"],
+            "extensions": [".yst"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "yeast",
+            "scopeName": "",
+            "path": "./syntaxes/yeast.tmLanguage.json"
+        }]
+    }
+}
